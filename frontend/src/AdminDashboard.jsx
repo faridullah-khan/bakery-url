@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:3001";
+const API_BASE_URL =
+  typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? "http://localhost:3001"
+    : import.meta.env.VITE_API_BASE_URL;
 const formatPKR = (value) => value.toLocaleString("en-PK", { style: "currency", currency: "PKR" });
 
 function useAutoFocus(open) {
@@ -94,7 +97,7 @@ export function InventoryAdminPage() {
     setLoading(true);
     setError(false);
     try {
-      const res = await fetch(`${API_BASE}/inventory`);
+      const res = await fetch(`${API_BASE_URL}/inventory`);
       if (!res.ok) throw new Error("Failed");
       const data = await res.json();
       setInventoryItems(Array.isArray(data) ? data : []);
@@ -137,7 +140,7 @@ export function InventoryAdminPage() {
     try {
       const payload = { name, price, quantity };
       if (editingId) {
-        const res = await fetch(`${API_BASE}/inventory/${editingId}`, {
+        const res = await fetch(`${API_BASE_URL}/inventory/${editingId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -145,7 +148,7 @@ export function InventoryAdminPage() {
         if (!res.ok) throw new Error("Failed");
         setInventoryItems((prev) => prev.map((it) => (it.id === editingId ? { ...it, ...payload } : it)));
       } else {
-        const res = await fetch(`${API_BASE}/inventory`, {
+        const res = await fetch(`${API_BASE_URL}/inventory`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -163,7 +166,7 @@ export function InventoryAdminPage() {
 
   const removeIngredient = async (id) => {
     try {
-      const res = await fetch(`${API_BASE}/inventory/${id}`, { method: "DELETE" });
+      const res = await fetch(`${API_BASE_URL}/inventory/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Failed");
       setInventoryItems((prev) => prev.filter((i) => i.id !== id));
     } catch {
@@ -263,8 +266,8 @@ export function RecipesPage() {
     setError(false);
     try {
       const [recipesRes, invRes] = await Promise.all([
-        fetch(`${API_BASE}/recipes`),
-        fetch(`${API_BASE}/inventory`),
+        fetch(`${API_BASE_URL}/recipes`),
+        fetch(`${API_BASE_URL}/inventory`),
       ]);
       if (!recipesRes.ok || !invRes.ok) throw new Error("Failed");
       const recipesData = await recipesRes.json();
@@ -334,7 +337,7 @@ export function RecipesPage() {
     try {
       const payload = { name, price, ingredients: cleanIngredients };
       if (editingId) {
-        const res = await fetch(`${API_BASE}/recipes/${editingId}`, {
+        const res = await fetch(`${API_BASE_URL}/recipes/${editingId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -342,7 +345,7 @@ export function RecipesPage() {
         if (!res.ok) throw new Error("Failed");
         setRecipes((prev) => prev.map((r) => (r.id === editingId ? { ...r, ...payload } : r)));
       } else {
-        const res = await fetch(`${API_BASE}/recipes`, {
+        const res = await fetch(`${API_BASE_URL}/recipes`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
@@ -360,7 +363,7 @@ export function RecipesPage() {
 
   const removeRecipe = async (id) => {
     try {
-      const res = await fetch(`${API_BASE}/recipes/${id}`, { method: "DELETE" });
+      const res = await fetch(`${API_BASE_URL}/recipes/${id}`, { method: "DELETE" });
       if (!res.ok) throw new Error("Failed");
       setRecipes((prev) => prev.filter((r) => r.id !== id));
     } catch {

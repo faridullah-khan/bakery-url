@@ -13,11 +13,23 @@ const seedProducts = [
 ];
 
 const STEP = 0.1;
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:3001";
+const API_BASE_URL =
+  typeof window !== "undefined" && window.location.hostname === "localhost"
+    ? "http://localhost:3001"
+    : import.meta.env.VITE_API_BASE_URL;
 
 const PKR = (value) => value.toLocaleString("en-PK", { style: "currency", currency: "PKR" });
 
 const formatCurrency = PKR;
+
+// Environment logging
+if (typeof window !== "undefined") {
+  const mode = window.location.hostname === "localhost" ? "development" : "production";
+  // eslint-disable-next-line no-console
+  console.log(`Running in ${mode} mode`);
+  // eslint-disable-next-line no-console
+  console.log(`API_BASE_URL: ${API_BASE_URL}`);
+}
 
 function ProductCard({ product, onAdd, showPrice }) {
   return (
@@ -101,11 +113,16 @@ function InventoryAdmin({ role, token }) {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(`${API_BASE}/inventory`, { headers: authHeaders });
+      const url = `${API_BASE_URL}/inventory`;
+      // eslint-disable-next-line no-console
+      console.log(`GET ${url}`);
+      const res = await fetch(url, { headers: authHeaders });
       if (!res.ok) throw new Error("Failed to fetch inventory");
       const data = await res.json();
       setItems(data);
     } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("Inventory fetch error", err);
       setError(err.message);
     } finally {
       setLoading(false);
@@ -123,7 +140,7 @@ function InventoryAdmin({ role, token }) {
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch(`${API_BASE}/inventory`, {
+      const res = await fetch(`${API_BASE_URL}/inventory`, {
         method: "POST",
         headers: { "Content-Type": "application/json", ...authHeaders },
         body: JSON.stringify({
@@ -152,7 +169,7 @@ function InventoryAdmin({ role, token }) {
   const submitEdit = async (id) => {
     setError("");
     try {
-      const res = await fetch(`${API_BASE}/inventory/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/inventory/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", ...authHeaders },
         body: JSON.stringify({
@@ -172,7 +189,7 @@ function InventoryAdmin({ role, token }) {
   const removeItem = async (id) => {
     setError("");
     try {
-      const res = await fetch(`${API_BASE}/inventory/${id}`, {
+      const res = await fetch(`${API_BASE_URL}/inventory/${id}`, {
         method: "DELETE",
         headers: authHeaders,
       });
@@ -298,11 +315,16 @@ function RecipeEditor({ role, token, products }) {
     if (!isAuthorized) return;
     setError("");
     try {
-      const res = await fetch(`${API_BASE}/inventory`, { headers: authHeaders });
+      const url = `${API_BASE_URL}/inventory`;
+      // eslint-disable-next-line no-console
+      console.log(`GET ${url}`);
+      const res = await fetch(url, { headers: authHeaders });
       if (!res.ok) throw new Error("Failed to load inventory");
       const data = await res.json();
       setInventory(data);
     } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("Inventory fetch error", err);
       setError(err.message);
     }
   };
@@ -312,15 +334,23 @@ function RecipeEditor({ role, token, products }) {
     setLoading(true);
     setError("");
     try {
-      const res = await fetch(`${API_BASE}/recipes/${productId}`, { headers: authHeaders });
+      const url = `${API_BASE_URL}/recipes/${productId}`;
+      // eslint-disable-next-line no-console
+      console.log(`GET ${url}`);
+      const res = await fetch(url, { headers: authHeaders });
       if (res.status === 404) {
         setIngredients([]);
+        setError("Requested resource not found. Please try again.");
+        // eslint-disable-next-line no-console
+        console.error("Recipe fetch 404", { url });
         return;
       }
       if (!res.ok) throw new Error("Failed to load recipe");
       const data = await res.json();
       setIngredients(Array.isArray(data.ingredients) ? data.ingredients : []);
     } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error("Recipe fetch error", err);
       setError(err.message);
       setIngredients([]);
     } finally {
@@ -381,7 +411,7 @@ function RecipeEditor({ role, token, products }) {
           quantity: parseFloat(ing.quantity) || 0,
         })),
       };
-      const res = await fetch(`${API_BASE}/recipes/${selectedProduct}`, {
+      const res = await fetch(`${API_BASE_URL}/recipes/${selectedProduct}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", ...authHeaders },
         body: JSON.stringify(payload),
@@ -491,7 +521,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState("pos");
   const [quantityModal, setQuantityModal] = useState({ open: false, product: null, value: "", error: "" });
   const [costMap, setCostMap] = useState({});
-  const [saleState, setSaleState] = useState({ loading: false, error: "", info: "" });
+  const [saleState, setSaleState] = useState({ loading: false, error: "", info: "", retry: false });
   const [confirmSaleOpen, setConfirmSaleOpen] = useState(false);
 
   const quantityStep = quantityModal.product?.sellBy === "weight" ? STEP : 1;
@@ -504,7 +534,7 @@ export default function App() {
       const entries = await Promise.all(
         products.map(async (p) => {
           try {
-            const res = await fetch(`${API_BASE}/recipes/${p.id}/cost`, { headers });
+            const res = await fetch(`${API_BASE_URL}/recipes/${p.id}/cost`, { headers });
             if (!res.ok) return [p.id, 0];
             const data = await res.json();
             return [p.id, data.totalCost || 0];
@@ -620,12 +650,11 @@ export default function App() {
 
   const checkout = async () => {
     if (cartItems.length === 0) return;
-    setSaleState({ loading: false, error: "Session expired, please log in again.", info: "" });
     if (!authToken) {
-      setSaleState({ loading: false, error: "Session expired, please log in again.", info: "" });
+      setSaleState({ loading: false, error: "Session expired, please log in again.", info: "", retry: true });
       return;
     }
-    setSaleState({ loading: true, error: "", info: "" });
+    setSaleState({ loading: true, error: "", info: "", retry: false });
     const items = cartItems.map((item) => ({
       productId: item.id,
       quantity: item.qty,
@@ -634,29 +663,39 @@ export default function App() {
       unitType: item.sellBy,
      }));
 
-    try {
+     try {
       const headers = { "Content-Type": "application/json" };
       if (authToken) headers.Authorization = `Bearer ${authToken}`;
-      const res = await fetch(`${API_BASE}/sale`, {
-        method: "POST",
-        headers,
-        body: JSON.stringify({ items }),
-      });
+      const url = `${API_BASE_URL}/sale`;
+      // eslint-disable-next-line no-console
+      console.log(`POST ${url}`);
+      const res = await fetch(url, {
+         method: "POST",
+         headers,
+         body: JSON.stringify({ items }),
+       });
 
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        const message = res.status === 401 ? "Session expired, please log in again." : data.error || data.details || "Checkout failed";
-        setSaleState({ loading: false, error: message, info: "" });
-        return;
-      }
+       if (!res.ok) {
+         const data = await res.json().catch(() => ({}));
+         const is401 = res.status === 401;
+         const is404 = res.status === 404;
+         const message = is401 ? "Session expired, please log in again." : data.error || data.details || "Checkout failed";
+         const friendly = is404 ? "Requested resource not found. Please try again." : message;
+         // eslint-disable-next-line no-console
+        console.error("Checkout failed", { status: res.status, details: data, url });
+        setSaleState({ loading: false, error: friendly, info: "", retry: is401 });
+         return;
+       }
 
-      setSaleState({ loading: false, error: "", info: "Sale completed" });
-      setCart({});
-      setConfirmSaleOpen(false);
-    } catch (err) {
-      setSaleState({ loading: false, error: err.message || "Checkout failed", info: "" });
-    }
-  };
+       setSaleState({ loading: false, error: "", info: "Sale completed", retry: false });
+       setCart({});
+       setConfirmSaleOpen(false);
+     } catch (err) {
+       // eslint-disable-next-line no-console
+      console.error("Checkout error", err);
+       setSaleState({ loading: false, error: err.message || "Checkout failed", info: "", retry: true });
+     }
+   };
 
   return (
     <div className="pos-shell">
@@ -752,15 +791,21 @@ export default function App() {
 
             <div className="cart-footer">
               {saleState.error && <div className="error-banner">{saleState.error}</div>}
+              {saleState.retry && !saleState.loading && (
+                <button className="checkout-btn" onClick={checkout}>
+                  Retry
+                </button>
+              )}
               {saleState.info && <div className="cost-chip">{saleState.info}</div>}
-               <div className="total-row">
-                 <span>Grand Total</span>
-                 <span>{formatCurrency(total)}</span>
-               </div>
-               <div className="total-row muted">
-                 <span>Cost Total</span>
-                 <span>{formatCurrency(costTotal)}</span>
-               </div>
+              {saleState.loading && <div className="cost-chip">Processing sale…</div>}
+                <div className="total-row">
+                  <span>Grand Total</span>
+                  <span>{formatCurrency(total)}</span>
+                </div>
+                <div className="total-row muted">
+                  <span>Cost Total</span>
+                  <span>{formatCurrency(costTotal)}</span>
+                </div>
                <button
                  className="checkout-btn"
                  disabled={cartItems.length === 0 || saleState.loading}
