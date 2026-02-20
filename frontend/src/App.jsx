@@ -13,10 +13,11 @@ const seedProducts = [
 ];
 
 const STEP = 0.1;
+const PROJECT_ID = import.meta.env.VITE_FIREBASE_PROJECT_ID || "your-project-id";
 const API_BASE_URL =
   typeof window !== "undefined" && window.location.hostname === "localhost"
-    ? "http://localhost:3001"
-    : import.meta.env.VITE_API_BASE_URL;
+    ? `http://localhost:5001/${PROJECT_ID}/us-central1/api`
+    : import.meta.env.VITE_API_BASE;
 
 const PKR = (value) => value.toLocaleString("en-PK", { style: "currency", currency: "PKR" });
 
