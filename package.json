@@ -1,0 +1,15 @@
+{
+  "name": "bakery-pos-vercel",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev:vercel": "vercel dev",
+    "lint": "echo 'no lint'"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "googleapis": "^131.0.0",
+    "uuid": "^9.0.1"
+  }
+}
+

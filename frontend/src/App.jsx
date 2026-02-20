@@ -13,11 +13,19 @@ const seedProducts = [
 ];
 
 const STEP = 0.1;
-const PROJECT_ID = import.meta.env.VITE_FIREBASE_PROJECT_ID || "your-project-id";
+const apiBaseFromEnv =
+  typeof globalThis !== "undefined" && globalThis.process?.env?.NEXT_PUBLIC_API_BASE_URL
+    ? globalThis.process.env.NEXT_PUBLIC_API_BASE_URL
+    : import.meta.env.VITE_API_BASE;
+
 const API_BASE_URL =
   typeof window !== "undefined" && window.location.hostname === "localhost"
-    ? `http://localhost:5001/${PROJECT_ID}/us-central1/api`
-    : import.meta.env.VITE_API_BASE;
+    ? "http://localhost:3000/api"
+    : apiBaseFromEnv;
+const API_KEY =
+  (typeof globalThis !== "undefined" && globalThis.process?.env?.NEXT_PUBLIC_API_KEY) ||
+  import.meta.env.VITE_API_KEY ||
+  "";
 
 const PKR = (value) => value.toLocaleString("en-PK", { style: "currency", currency: "PKR" });
 
@@ -530,7 +538,9 @@ export default function App() {
 
   useEffect(() => {
     let cancelled = false;
-    const headers = authToken ? { Authorization: `Bearer ${authToken}` } : {};
+    const headers = authToken
+      ? { Authorization: `Bearer ${authToken}`, "x-api-key": API_KEY }
+      : { "x-api-key": API_KEY };
     const load = async () => {
       const entries = await Promise.all(
         products.map(async (p) => {
@@ -667,6 +677,7 @@ export default function App() {
      try {
       const headers = { "Content-Type": "application/json" };
       if (authToken) headers.Authorization = `Bearer ${authToken}`;
+      if (API_KEY) headers["x-api-key"] = API_KEY;
       const url = `${API_BASE_URL}/sale`;
       // eslint-disable-next-line no-console
       console.log(`POST ${url}`);
