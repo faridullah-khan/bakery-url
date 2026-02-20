@@ -77,3 +77,34 @@ Before we get started, keep in mind:
     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
 [error] 
 [error] Error: Failed to get Firebase project your-project-id. Please make sure the project exists and your account has permission to access it.
+[debug] [2026-02-20T02:20:39.560Z] ----------------------------------------------------------------------
+[debug] [2026-02-20T02:20:39.561Z] Command:       /opt/homebrew/Cellar/node/23.3.0/bin/node /opt/homebrew/bin/firebase deploy --only hosting
+[debug] [2026-02-20T02:20:39.561Z] CLI Version:   15.7.0
+[debug] [2026-02-20T02:20:39.561Z] Platform:      darwin
+[debug] [2026-02-20T02:20:39.562Z] Node Version:  v23.3.0
+[debug] [2026-02-20T02:20:39.562Z] Time:          Fri Feb 20 2026 03:20:39 GMT+0100 (Central European Standard Time)
+[debug] [2026-02-20T02:20:39.562Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-02-20T02:20:39.908Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-02-20T02:20:39.909Z] > authorizing via signed-in user (macaronbakerypatisserie@gmail.com)
+[debug] [2026-02-20T02:20:39.909Z] [iam] checking project your-project-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-02-20T02:20:39.909Z] Checked if tokens are valid: true, expires at: 1771557493921
+[debug] [2026-02-20T02:20:39.909Z] Checked if tokens are valid: true, expires at: 1771557493921
+[debug] [2026-02-20T02:20:39.909Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/your-project-id:testIamPermissions [none]
+[debug] [2026-02-20T02:20:39.909Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/your-project-id:testIamPermissions  x-goog-user-project=your-project-id
+[debug] [2026-02-20T02:20:39.909Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/your-project-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-02-20T02:20:40.752Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/your-project-id:testIamPermissions 403
+[debug] [2026-02-20T02:20:40.753Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/your-project-id:testIamPermissions {"error":{"code":403,"message":"Caller does not have required permission to use project your-project-id. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=your-project-id and then retry. Propagation of the new permission may take a few minutes.","status":"PERMISSION_DENIED","details":[{"@type":"type.googleapis.com/google.rpc.ErrorInfo","reason":"USER_PROJECT_DENIED","domain":"googleapis.com","metadata":{"consumer":"projects/your-project-id","containerInfo":"your-project-id","consoleUrl":"https://console.developers.google.com/iam-admin/iam/project?project=your-project-id","service":"cloudresourcemanager.googleapis.com"}},{"@type":"type.googleapis.com/google.rpc.LocalizedMessage","locale":"en-US","message":"Caller does not have required permission to use project your-project-id. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=your-project-id and then retry. Propagation of the new permission may take a few minutes."},{"@type":"type.googleapis.com/google.rpc.Help","links":[{"description":"Google developer console IAM admin","url":"https://console.developers.google.com/iam-admin/iam/project?project=your-project-id"}]}]}}
+[debug] [2026-02-20T02:20:40.753Z] [iam] error while checking permissions, command may fail: Request to https://cloudresourcemanager.googleapis.com/v1/projects/your-project-id:testIamPermissions had HTTP Error: 403, Caller does not have required permission to use project your-project-id. Grant the caller the roles/serviceusage.serviceUsageConsumer role, or a custom role with the serviceusage.services.use permission, by visiting https://console.developers.google.com/iam-admin/iam/project?project=your-project-id and then retry. Propagation of the new permission may take a few minutes.
+[debug] [2026-02-20T02:20:40.754Z] Checked if tokens are valid: true, expires at: 1771557493921
+[debug] [2026-02-20T02:20:40.754Z] Checked if tokens are valid: true, expires at: 1771557493921
+[debug] [2026-02-20T02:20:40.754Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/your-project-id [none]
+[debug] [2026-02-20T02:20:41.151Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/your-project-id 403
+[debug] [2026-02-20T02:20:41.152Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/your-project-id {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2026-02-20T02:20:41.152Z] Request to https://firebase.googleapis.com/v1beta1/projects/your-project-id had HTTP Error: 403, The caller does not have permission
+[debug] [2026-02-20T02:20:41.226Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/your-project-id had HTTP Error: 403, The caller does not have permission
+    at responseToError (/opt/homebrew/lib/node_modules/firebase-tools/lib/responseToError.js:53:12)
+    at RetryOperation._fn (/opt/homebrew/lib/node_modules/firebase-tools/lib/apiv2.js:330:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to get Firebase project your-project-id. Please make sure the project exists and your account has permission to access it.
