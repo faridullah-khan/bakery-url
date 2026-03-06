@@ -3,25 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sweet Delights Bakery | Fresh Baked Goods Daily</title>
+    <title>Macaron Bakers | Premium Bakery in Peshawar</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <h1>🍞 Sweet Delights</h1>
+                <h1>Macaron Bakers</h1>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#products">Our Treats</a></li>
+                <li><a href="#menu">Menu</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
@@ -29,52 +36,124 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h2>Fresh From Our Oven<br>To Your Heart</h2>
-                <p>Artisanal breads, heavenly pastries, and custom cakes made with love since 1995</p>
-                <a href="#products" class="btn">View Our Menu</a>
+                <span class="hero-subtitle">Welcome to</span>
+                <h2>Macaron Bakers</h2>
+                <p class="hero-description">Where French elegance meets Peshawar's finest ingredients. Artisanal breads, delicate pastries, and unforgettable cakes since 2020.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-primary">View Our Menu</a>
+                    <a href="#contact" class="btn btn-secondary">Visit Us Today</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Products -->
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-bread-slice"></i>
+                    <h3>Fresh Daily</h3>
+                    <p>Baked fresh every morning at 5 AM</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-wheat-alt"></i>
+                    <h3>Premium Ingredients</h3>
+                    <p>French butter, Belgian chocolate, organic flour</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Made with Love</h3>
+                    <p>Traditional recipes with a modern twist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
     <section id="products" class="products">
         <div class="container">
-            <h2 class="section-title">Today's Special Treats</h2>
+            <h2 class="section-title">Our Signature Treats</h2>
             <div class="product-grid">
                 <div class="product-card">
                     <div class="product-image">
-                        <div class="image-placeholder croissant">🥐</div>
+                        <div class="image-placeholder macaron">🍪</div>
                     </div>
-                    <h3>Butter Croissant</h3>
-                    <p class="description">Flaky, golden, and made with real French butter</p>
-                    <p class="price">$3.50</p>
+                    <div class="product-info">
+                        <h3>French Macarons</h3>
+                        <p class="product-desc">Delicate almond meringue cookies with ganache filling</p>
+                        <div class="product-footer">
+                            <span class="price">PKR 350/dozen</span>
+                            <span class="badge">Signature</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <div class="product-image">
-                        <div class="image-placeholder bread">🍞</div>
+                        <div class="image-placeholder crossiant">🥐</div>
                     </div>
-                    <h3>Sourdough Loaf</h3>
-                    <p class="description">24-hour fermentation, crispy crust, soft inside</p>
-                    <p class="price">$6.00</p>
+                    <div class="product-info">
+                        <h3>Butter Croissant</h3>
+                        <p class="product-desc">72-layer flaky pastry with French butter</p>
+                        <div class="product-footer">
+                            <span class="price">PKR 250</span>
+                            <span class="badge bestseller">Bestseller</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="image-placeholder sourdough">🍞</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Artisan Sourdough</h3>
+                        <p class="product-desc">24-hour fermentation, crispy crust</p>
+                        <div class="product-footer">
+                            <span class="price">PKR 450</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="product-card">
                     <div class="product-image">
                         <div class="image-placeholder cake">🎂</div>
                     </div>
-                    <h3>Berry Chantilly Cake</h3>
-                    <p class="description">Vanilla sponge with fresh berries and cream</p>
-                    <p class="price">$45.00</p>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="image-placeholder cookie">🍪</div>
+                    <div class="product-info">
+                        <h3>Signature Cake</h3>
+                        <p class="product-desc">Custom designs for all celebrations</p>
+                        <div class="product-footer">
+                            <span class="price">From PKR 2,500</span>
+                            <span class="badge">Custom</span>
+                        </div>
                     </div>
-                    <h3>Chocolate Chip Cookies</h3>
-                    <p class="description">Chewy center, crispy edges, loaded with chocolate</p>
-                    <p class="price">$2.50 each</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section with Image -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-container">
+                <div class="menu-image">
+                    <img src="menu.jpg" alt="Macaron Bakers Menu" onerror="this.src='https://via.placeholder.com/600x800?text=Menu+Image+Here'">
+                    <div class="menu-overlay">
+                        <p>Click to enlarge</p>
+                    </div>
+                </div>
+                <div class="menu-description">
+                    <h3>Freshly Baked Daily</h3>
+                    <p>From traditional Peshawari naan to French pastries, our menu offers the best of both worlds.</p>
+                    <ul class="menu-highlights">
+                        <li><i class="fas fa-check-circle"></i> Breakfast pastries (7 AM - 11 AM)</li>
+                        <li><i class="fas fa-check-circle"></i> Fresh bread loaves</li>
+                        <li><i class="fas fa-check-circle"></i> Custom cakes (24hr notice)</li>
+                        <li><i class="fas fa-check-circle"></i> French macarons daily</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Order Now</a>
                 </div>
             </div>
         </div>
@@ -83,21 +162,29 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="about-content">
-                <h2 class="section-title">Our Bakery Story</h2>
-                <div class="about-grid">
-                    <div class="about-text">
-                        <p>Sweet Delights Bakery started as a small family dream in 1995. Maria Rodriguez, our founder and master baker, brought her grandmother's recipes from Spain and combined them with local ingredients to create something truly special.</p>
-                        <p>Today, we're proud to be a neighborhood gathering place where the aroma of fresh bread welcomes you through the door. Every morning at 4 AM, our bakers arrive to start the dough, ensuring that by 7 AM, the first batch of croissants is ready for our early birds.</p>
-                        <p>We believe in:</p>
-                        <ul>
-                            <li>✨ Only the finest ingredients - real butter, Belgian chocolate, organic flour</li>
-                            <li>🌿 No preservatives or artificial flavors - ever</li>
-                            <li>❤️ Baking with passion and serving with a smile</li>
-                        </ul>
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-frame">
+                        <div class="image-placeholder bakery">🥖</div>
                     </div>
-                    <div class="about-image">
-                        <div class="image-placeholder bakery">🏪</div>
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title left">Our Story</h2>
+                    <p class="about-text">Macaron Bakers began with a simple dream: to bring the authentic taste of French patisserie to Peshawar. Our founder, trained in Paris, returned home to combine classical French techniques with local flavors and traditions.</p>
+                    <p class="about-text">Every morning at 4 AM, our bakers start kneading dough, preparing fillings, and preheating ovens. By sunrise, the aroma of fresh bread fills University Road, drawing in customers from across the city.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number">4+</span>
+                            <span class="stat-label">Years of Excellence</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Varieties Daily</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Happy Customers</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -110,35 +197,98 @@
             <h2 class="section-title">Visit Our Bakery</h2>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h3>Get in Touch</h3>
-                    <p>📍 123 Main Street, Anytown, USA</p>
-                    <p>📞 (555) 123-4567</p>
-                    <p>✉️ hello@sweetdelights.com</p>
-                    <div class="hours">
-                        <h4>Opening Hours</h4>
-                        <p>Monday - Friday: 7:00 AM - 7:00 PM</p>
-                        <p>Saturday: 8:00 AM - 6:00 PM</p>
-                        <p>Sunday: 8:00 AM - 2:00 PM</p>
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Mehboob Plaza, University Road<br>Peshawar, Pakistan</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <h3>Hours</h3>
+                        <p>Monday - Saturday: 8:00 AM - 10:00 PM<br>Sunday: 9:00 AM - 8:00 PM</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3>Contact</h3>
+                        <p>Phone: +92 300 1234567<br>Email: hello@macaronbakers.pk</p>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form>
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Your Message" rows="4" required></textarea>
-                        <button type="submit" class="btn">Send Message</button>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Map Section -->
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.8472164871147!2d71.5245435!3d33.9794245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d9173b1f3b3c3d%3A0x8c0f3b2e9a7b9c!2sUniversity%20Road%2C%20Peshawar!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Sweet Delights Bakery. Made with ❤️ and butter.</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Macaron Bakers</h3>
+                    <p>Bringing French elegance to Peshawar since 2020</p>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Macaron Bakers. All rights reserved. Made with <i class="fas fa-heart"></i> in Peshawar</p>
+            </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu after clicking
+                    document.querySelector('.nav-links').classList.remove('active');
+                    document.querySelector('.hamburger').classList.remove('active');
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
