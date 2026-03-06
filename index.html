@@ -3,26 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macaron Bakers | Premium Bakery in Peshawar</title>
+    <title>Macaron Bakers | Artisan Bakery Peshawar</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
+        <div class="container nav-container">
             <div class="logo">
-                <h1>Macaron Bakers</h1>
+                <a href="#home">Macaron Bakers</a>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#products">Our Treats</a></li>
+                <li><a href="#products">Treats</a></li>
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">Story</a></li>
+                <li><a href="#contact">Visit</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -34,15 +37,14 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-subtitle">Welcome to</span>
-                <h2>Macaron Bakers</h2>
-                <p class="hero-description">Where French elegance meets Peshawar's finest ingredients. Artisanal breads, delicate pastries, and unforgettable cakes since 2020.</p>
-                <div class="hero-buttons">
-                    <a href="#menu" class="btn btn-primary">View Our Menu</a>
-                    <a href="#contact" class="btn btn-secondary">Visit Us Today</a>
-                </div>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Macaron Bakers</h1>
+            <p class="hero-subtitle">French Elegance. Peshawar's Heart.</p>
+            <p class="hero-description">Artisanal breads, delicate pastries, and unforgettable cakes crafted daily on University Road since 2020.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">Explore Menu</a>
+                <a href="#contact" class="btn btn-secondary">Find Us</a>
             </div>
         </div>
     </section>
@@ -51,78 +53,79 @@
     <section class="features">
         <div class="container">
             <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-bread-slice"></i>
-                    <h3>Fresh Daily</h3>
-                    <p>Baked fresh every morning at 5 AM</p>
+                <div class="feature-item">
+                    <i class="fas fa-sun feature-icon"></i>
+                    <h3>Baked Fresh Daily</h3>
+                    <p>Our ovens start at 4 AM, ensuring the warmest bread and flakiest pastries every morning.</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-wheat-alt"></i>
-                    <h3>Premium Ingredients</h3>
-                    <p>French butter, Belgian chocolate, organic flour</p>
+                <div class="feature-item">
+                    <i class="fas fa-wheat-alt feature-icon"></i>
+                    <h3>Finest Ingredients</h3>
+                    <p>We use French butter, Belgian chocolate, and organic flour for an authentic taste.</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-heart"></i>
-                    <h3>Made with Love</h3>
-                    <p>Traditional recipes with a modern twist</p>
+                <div class="feature-item">
+                    <i class="fas fa-heart feature-icon"></i>
+                    <h3>Made with Passion</h3>
+                    <p>Traditional techniques meet local flavors, baked with love by our dedicated team.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- Signature Products Section (with your photos) -->
     <section id="products" class="products">
         <div class="container">
             <h2 class="section-title">Our Signature Treats</h2>
             <div class="product-grid">
+                <!-- Product 1: Macarons -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div class="image-placeholder macaron">🍪</div>
+                        <img src="images/macarons.jpg" alt="Colorful French Macarons" onerror="this.src='https://via.placeholder.com/400x300/f5e6d3/8b4513?text=Macarons'">
                     </div>
                     <div class="product-info">
                         <h3>French Macarons</h3>
-                        <p class="product-desc">Delicate almond meringue cookies with ganache filling</p>
+                        <p class="product-desc">Delicate almond shells with silky ganache. Available in 8 flavors daily.</p>
                         <div class="product-footer">
-                            <span class="price">PKR 350/dozen</span>
+                            <span class="price">PKR 350/doz</span>
                             <span class="badge">Signature</span>
                         </div>
                     </div>
                 </div>
-
+                <!-- Product 2: Croissant -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div class="image-placeholder crossiant">🥐</div>
+                        <img src="images/croissant.jpg" alt="Butter Croissant" onerror="this.src='https://via.placeholder.com/400x300/f5e6d3/8b4513?text=Croissant'">
                     </div>
                     <div class="product-info">
                         <h3>Butter Croissant</h3>
-                        <p class="product-desc">72-layer flaky pastry with French butter</p>
+                        <p class="product-desc">72 layers of flaky, golden perfection made with French butter.</p>
                         <div class="product-footer">
                             <span class="price">PKR 250</span>
                             <span class="badge bestseller">Bestseller</span>
                         </div>
                     </div>
                 </div>
-
+                <!-- Product 3: Sourdough -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div class="image-placeholder sourdough">🍞</div>
+                        <img src="images/sourdough.jpg" alt="Artisan Sourdough Bread" onerror="this.src='https://via.placeholder.com/400x300/f5e6d3/8b4513?text=Sourdough'">
                     </div>
                     <div class="product-info">
                         <h3>Artisan Sourdough</h3>
-                        <p class="product-desc">24-hour fermentation, crispy crust</p>
+                        <p class="product-desc">24-hour fermentation gives it that perfect crust and tangy flavor.</p>
                         <div class="product-footer">
                             <span class="price">PKR 450</span>
                         </div>
                     </div>
                 </div>
-
+                <!-- Product 4: Custom Cake -->
                 <div class="product-card">
                     <div class="product-image">
-                        <div class="image-placeholder cake">🎂</div>
+                        <img src="images/cake.jpg" alt="Custom Celebration Cake" onerror="this.src='https://via.placeholder.com/400x300/f5e6d3/8b4513?text=Cake'">
                     </div>
                     <div class="product-info">
-                        <h3>Signature Cake</h3>
-                        <p class="product-desc">Custom designs for all celebrations</p>
+                        <h3>Signature Cakes</h3>
+                        <p class="product-desc">Custom-designed for weddings, birthdays, and every celebration.</p>
                         <div class="product-footer">
                             <span class="price">From PKR 2,500</span>
                             <span class="badge">Custom</span>
@@ -133,45 +136,37 @@
         </div>
     </section>
 
-    <!-- Menu Section with Image -->
+    <!-- Two-Page Menu Section -->
     <section id="menu" class="menu-section">
         <div class="container">
             <h2 class="section-title">Our Menu</h2>
-            <div class="menu-container">
-                <div class="menu-image">
-                    <img src="menu.jpg" alt="Macaron Bakers Menu" onerror="this.src='https://via.placeholder.com/600x800?text=Menu+Image+Here'">
-                    <div class="menu-overlay">
-                        <p>Click to enlarge</p>
-                    </div>
+            <div class="menu-tabs">
+                <button class="menu-tab active" data-page="1">Page 1: Pastries & Breads</button>
+                <button class="menu-tab" data-page="2">Page 2: Cakes & Beverages</button>
+            </div>
+            <div class="menu-display">
+                <div class="menu-page active" id="menu-page-1">
+                    <img src="menu/menu-page-1.jpg" alt="Macaron Bakers Menu Page 1 - Pastries and Breads" onerror="this.src='https://via.placeholder.com/800x1000/f5e6d3/8b4513?text=Menu+Page+1'">
                 </div>
-                <div class="menu-description">
-                    <h3>Freshly Baked Daily</h3>
-                    <p>From traditional Peshawari naan to French pastries, our menu offers the best of both worlds.</p>
-                    <ul class="menu-highlights">
-                        <li><i class="fas fa-check-circle"></i> Breakfast pastries (7 AM - 11 AM)</li>
-                        <li><i class="fas fa-check-circle"></i> Fresh bread loaves</li>
-                        <li><i class="fas fa-check-circle"></i> Custom cakes (24hr notice)</li>
-                        <li><i class="fas fa-check-circle"></i> French macarons daily</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary">Order Now</a>
+                <div class="menu-page" id="menu-page-2">
+                    <img src="menu/menu-page-2.jpg" alt="Macaron Bakers Menu Page 2 - Cakes and Beverages" onerror="this.src='https://via.placeholder.com/800x1000/f5e6d3/8b4513?text=Menu+Page+2'">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About / Story Section with Photo -->
     <section id="about" class="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-image">
-                    <div class="image-frame">
-                        <div class="image-placeholder bakery">🥖</div>
-                    </div>
+                    <img src="images/story-bakery.jpg" alt="Inside Macaron Bakers bakery" onerror="this.src='https://via.placeholder.com/600x500/f5e6d3/8b4513?text=Our+Bakery'">
                 </div>
                 <div class="about-content">
-                    <h2 class="section-title left">Our Story</h2>
-                    <p class="about-text">Macaron Bakers began with a simple dream: to bring the authentic taste of French patisserie to Peshawar. Our founder, trained in Paris, returned home to combine classical French techniques with local flavors and traditions.</p>
-                    <p class="about-text">Every morning at 4 AM, our bakers start kneading dough, preparing fillings, and preheating ovens. By sunrise, the aroma of fresh bread fills University Road, drawing in customers from across the city.</p>
+                    <h2 class="section-title">Our Story</h2>
+                    <p>Macaron Bakers began with a dream: to bring the authentic taste of French patisserie to Peshawar. Our founder, trained in Paris, returned home to blend classical techniques with our city's rich culinary traditions.</p>
+                    <p>Every morning at 4 AM, our bakers arrive to knead dough, prepare delicate fillings, and preheat the ovens. By sunrise, the irresistible aroma of fresh bread fills University Road, drawing in our community.</p>
+                    <p>We believe in the magic of real ingredients—French butter, Belgian chocolate, and local organic flour—to create treats that taste as beautiful as they look.</p>
                     <div class="stats">
                         <div class="stat">
                             <span class="stat-number">4+</span>
@@ -179,7 +174,7 @@
                         </div>
                         <div class="stat">
                             <span class="stat-number">50+</span>
-                            <span class="stat-label">Varieties Daily</span>
+                            <span class="stat-label">Daily Varieties</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">1000+</span>
@@ -191,52 +186,39 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact & Location Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">Visit Our Bakery</h2>
             <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="info-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
+                    <div class="contact-card">
+                        <i class="fas fa-map-pin"></i>
+                        <h3>Address</h3>
                         <p>Mehboob Plaza, University Road<br>Peshawar, Pakistan</p>
                     </div>
-                    <div class="info-card">
+                    <div class="contact-card">
                         <i class="fas fa-clock"></i>
                         <h3>Hours</h3>
                         <p>Monday - Saturday: 8:00 AM - 10:00 PM<br>Sunday: 9:00 AM - 8:00 PM</p>
                     </div>
-                    <div class="info-card">
+                    <div class="contact-card">
                         <i class="fas fa-phone-alt"></i>
                         <h3>Contact</h3>
-                        <p>Phone: +92 300 1234567<br>Email: hello@macaronbakers.pk</p>
+                        <p>+92 300 1234567<br>hello@macaronbakers.pk</p>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" placeholder="Phone Number">
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="4" required></textarea>
-                        </div>
+                    <h3>Drop Us a Line</h3>
+                    <form id="bakery-contact-form">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <textarea placeholder="Your Message (e.g., cake order inquiry)" rows="4" required></textarea>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Map Section -->
-    <section class="map-section">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.8472164871147!2d71.5245435!3d33.9794245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d9173b1f3b3c3d%3A0x8c0f3b2e9a7b9c!2sUniversity%20Road%2C%20Peshawar!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </section>
 
     <!-- Footer -->
@@ -245,48 +227,61 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Macaron Bakers</h3>
-                    <p>Bringing French elegance to Peshawar since 2020</p>
+                    <p>French Elegance. Peshawar's Heart.</p>
                 </div>
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Macaron Bakers. All rights reserved. Made with <i class="fas fa-heart"></i> in Peshawar</p>
+                <p>© 2024 Macaron Bakers. All rights reserved. Made with <i class="fas fa-heart"></i> in Peshawar.</p>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript for Mobile Menu and Menu Tabs -->
     <script>
-        // Mobile menu toggle
-        document.querySelector('.hamburger').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-            this.classList.toggle('active');
+        // Mobile Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu after clicking
-                    document.querySelector('.nav-links').classList.remove('active');
-                    document.querySelector('.hamburger').classList.remove('active');
-                }
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
             });
         });
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        // Menu Tabs (for 2-page menu)
+        const tabs = document.querySelectorAll('.menu-tab');
+        const pages = document.querySelectorAll('.menu-page');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and pages
+                tabs.forEach(t => t.classList.remove('active'));
+                pages.forEach(p => p.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Show corresponding page
+                const pageId = tab.getAttribute('data-page');
+                document.getElementById(`menu-page-${pageId}`).classList.add('active');
+            });
+        });
+
+        // Simple form submission alert
+        document.getElementById('bakery-contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
+            alert('Thank you for contacting Macaron Bakers! We will reply soon.');
             this.reset();
         });
     </script>

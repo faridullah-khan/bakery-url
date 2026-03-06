@@ -7,11 +7,11 @@
       "use": "@vercel/static"
     },
     {
-      "src": "*.jpg",
+      "src": "images/*.{jpg,png,jpeg,gif}",
       "use": "@vercel/static"
     },
     {
-      "src": "*.png",
+      "src": "menu/*.{jpg,png,jpeg,gif}",
       "use": "@vercel/static"
     }
   ],
