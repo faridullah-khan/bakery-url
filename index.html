@@ -72,7 +72,7 @@
         </div>
     </section>
 
-    <!-- Signature Products Section -->
+    <!-- Signature Products Section (No Prices) -->
     <section id="products" class="products">
         <div class="container">
             <h2 class="section-title">Our Signature Treats</h2>
@@ -85,8 +85,7 @@
                     <div class="product-info">
                         <h3>Almond Caramel Cake</h3>
                         <p class="product-desc">Delicate almond layers with rich caramel ganache. A customer favorite!</p>
-                        <div class="product-footer">
-                            <span class="price">PKR 450/slice</span>
+                        <div class="product-badge">
                             <span class="badge">Signature</span>
                         </div>
                     </div>
@@ -99,8 +98,7 @@
                     <div class="product-info">
                         <h3>Royal Penra Skewer</h3>
                         <p class="product-desc">Flaky, golden pastry with a unique desi twist. Perfect with afternoon tea.</p>
-                        <div class="product-footer">
-                            <span class="price">PKR 280</span>
+                        <div class="product-badge">
                             <span class="badge bestseller">Bestseller</span>
                         </div>
                     </div>
@@ -113,9 +111,6 @@
                     <div class="product-info">
                         <h3>Signature Carrot Supreme</h3>
                         <p class="product-desc">Moist carrot cake with walnuts and cream cheese frosting.</p>
-                        <div class="product-footer">
-                            <span class="price">PKR 380/slice</span>
-                        </div>
                     </div>
                 </div>
                 <!-- Product 4: Emerald Khoya -->
@@ -126,9 +121,6 @@
                     <div class="product-info">
                         <h3>Emerald Khoya Delight</h3>
                         <p class="product-desc">Traditional khoya based dessert with pistachios and cardamom.</p>
-                        <div class="product-footer">
-                            <span class="price">PKR 320</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -255,8 +247,10 @@
 
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                if (hamburger) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                }
             });
         });
 
