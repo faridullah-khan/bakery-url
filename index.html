@@ -11,6 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* Add fallback background colors for images */
+        img {
+            background-color: #f5e6d3; /* Warm cream color */
+            min-height: 100px;
+        }
+    </style>
 </head>
 <body>
 
@@ -72,15 +79,15 @@
         </div>
     </section>
 
-    <!-- Signature Products Section (No Prices) -->
+    <!-- Signature Products Section -->
     <section id="products" class="products">
         <div class="container">
             <h2 class="section-title">Our Signature Treats</h2>
             <div class="product-grid">
-                <!-- Product 1: Macarons -->
+                <!-- Product 1 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/macarons.jpg" alt="Almond Caramel Cake" onerror="this.src='https://via.placeholder.com/400x300/f5e6d3/8b4513?text=Almond+Cake'">
+                        <img src="images/macarons.jpg" alt="Almond Caramel Cake">
                     </div>
                     <div class="product-info">
                         <h3>Almond Caramel Cake</h3>
@@ -90,10 +97,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product 2: Royal Penra -->
+                <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/croissant.jpg" alt="Royal Penra Skewer" onerror="this.src='https://via.placeholder.com/400x300/f5e6d3/8b4513?text=Royal+Penra'">
+                        <img src="images/croissant.jpg" alt="Royal Penra Skewer">
                     </div>
                     <div class="product-info">
                         <h3>Royal Penra Skewer</h3>
@@ -103,20 +110,20 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product 3: Carrot Supreme -->
+                <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/sourdough.jpg" alt="Signature Carrot Supreme" onerror="this.src='https://via.placeholder.com/400x300/f5e6d3/8b4513?text=Carrot+Cake'">
+                        <img src="images/sourdough.jpg" alt="Signature Carrot Supreme">
                     </div>
                     <div class="product-info">
                         <h3>Signature Carrot Supreme</h3>
                         <p class="product-desc">Moist carrot cake with walnuts and cream cheese frosting.</p>
                     </div>
                 </div>
-                <!-- Product 4: Emerald Khoya -->
+                <!-- Product 4 -->
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="images/cake.jpg" alt="Emerald Khoya Delight" onerror="this.src='https://via.placeholder.com/400x300/f5e6d3/8b4513?text=Khoya+Delight'">
+                        <img src="images/cake.jpg" alt="Emerald Khoya Delight">
                     </div>
                     <div class="product-info">
                         <h3>Emerald Khoya Delight</h3>
@@ -127,7 +134,7 @@
         </div>
     </section>
 
-    <!-- Two-Page Menu Section -->
+    <!-- Menu Section -->
     <section id="menu" class="menu-section">
         <div class="container">
             <h2 class="section-title">Our Menu</h2>
@@ -137,21 +144,21 @@
             </div>
             <div class="menu-display">
                 <div class="menu-page active" id="menu-page-1">
-                    <img src="menu/menu-page-1.jpg" alt="Macaron Bakers Menu - Pastries" onerror="this.src='https://via.placeholder.com/800x1000/f5e6d3/8b4513?text=Menu+Page+1'">
+                    <img src="menu/menu-page-1.jpg" alt="Macaron Bakers Menu - Pastries">
                 </div>
                 <div class="menu-page" id="menu-page-2">
-                    <img src="menu/menu-page-2.jpg" alt="Macaron Bakers Menu - Cakes" onerror="this.src='https://via.placeholder.com/800x1000/f5e6d3/8b4513?text=Menu+Page+2'">
+                    <img src="menu/menu-page-2.jpg" alt="Macaron Bakers Menu - Cakes">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About / Story Section -->
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <div class="about-grid">
                 <div class="about-image">
-                    <img src="images/story-bakery.jpg" alt="Inside Macaron Bakers bakery" onerror="this.src='https://via.placeholder.com/600x500/f5e6d3/8b4513?text=Our+Bakery'">
+                    <img src="images/story-bakery.jpg" alt="Inside Macaron Bakers bakery">
                 </div>
                 <div class="about-content">
                     <h2 class="section-title">Our Story</h2>
@@ -204,7 +211,7 @@
                     <form id="bakery-contact-form">
                         <input type="text" placeholder="Your Name" required>
                         <input type="email" placeholder="Email Address" required>
-                        <textarea placeholder="Your Message (e.g., cake order inquiry)" rows="4" required></textarea>
+                        <textarea placeholder="Your Message" rows="4" required></textarea>
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
                 </div>
