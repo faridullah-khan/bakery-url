@@ -584,3 +584,78 @@ h1, h2, h3, h4 {
         max-width: 300px;
     }
 }
+
+.order-now {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    padding: 12px 25px;
+    border-radius: 50px;
+    margin: 20px 0;
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+    transform: scale(1.05);
+    border: 2px solid #fff;
+    animation: pulse 2s infinite;
+}
+
+.order-text {
+    color: white;
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.order-number {
+    color: white;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-decoration: none;
+    background: rgba(255,255,255,0.2);
+    padding: 5px 15px;
+    border-radius: 40px;
+    border: 1px solid rgba(255,255,255,0.5);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.order-number:hover {
+    background: white;
+    color: #ff6b6b;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 15px 30px rgba(255, 107, 107, 0.5);
+    }
+    100% {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+    }
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+    .order-now {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px 20px;
+    }
+    
+    .order-text {
+        font-size: 1.2rem;
+    }
+    
+    .order-number {
+        font-size: 1.3rem;
+    }
+}
